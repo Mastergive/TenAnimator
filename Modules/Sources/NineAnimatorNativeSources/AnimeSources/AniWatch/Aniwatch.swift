@@ -26,25 +26,25 @@ import AppKit
 import NineAnimatorCommon
 
 class NASourceAniwatch: BaseSource, Source, PromiseSource {
-    var name: String { "aniwatch.me" }
+    var name: String { "hianime.to" }
     
     var aliases: [String] { [] }
     
     #if canImport(UIKit)
-    var siteLogo: UIImage { #imageLiteral(resourceName: "Aniwatch Site Icon") }
+    var siteLogo: UIImage { #imageLiteral(resourceName: "Hiiwatch Site Icon") }
     #elseif canImport(AppKit)
-    var siteLogo: NSImage { #imageLiteral(resourceName: "Aniwatch Site Icon") }
+    var siteLogo: NSImage { #imageLiteral(resourceName: "Hiwatch Site Icon") }
     #endif
 
     var siteDescription: String {
-        "Aniwatch is a fast source, and provides alot of anime information, however it requires an account to use."
+        "HiAnime.to is a free site to watch anime and you can even download subbed or dubbed anime in ultra HD quality"
     }
     
     var preferredAnimeNameVariant: KeyPath<ListingAnimeName, String> {
         \.romaji
     }
     
-    override var endpoint: String { "https://aniwatch.me" }
+    override var endpoint: String { "https://hianime.to/" }
     
     /*let ajexEndpoint = URL(string: "https://aniwatch.me/api/ajax/APIHandle")!
     
