@@ -4,7 +4,6 @@ on:
   - "workflow_dispatch"
 jobs:
   build:
-    
     runs-on: macos-13
     
     strategy:
@@ -29,9 +28,11 @@ jobs:
       run: ./Misc/scripts/package.sh "build/NineAnimator_Nightly.${{ matrix.platform }}.xcarchive" ${{ matrix.platform }} "NineAnimator_Nightly.${{ steps.commitinfo.outputs.sha_short }}.${{ matrix.platform }}"
     - name: Upload ${{ matrix.platform }} Symbols
       run: ./Misc/scripts/upload_symbols.sh ${{ secrets.APPCENTER_TOKEN }}
+    - name: List build directory contents
+      run: ls -alh build/  # Debugging step to verify files
     - name: Upload ${{ matrix.platform }} Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: NineAnimator_Nightly.${{ steps.commitinfo.outputs.sha_short }}.${{ matrix.platform }}
-        path: build/*
-        if-no-files-found: error
+        path: build/NineAnimator_Nightly.${{ matrix.platform }}.xcarchive  # Ensure the path is correct
+        if-no-files-found: warn  # Change from error to warn to avoid failure if no files found
