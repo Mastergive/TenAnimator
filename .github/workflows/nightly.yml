@@ -11,7 +11,7 @@ jobs:
         platform: ['iOS', 'macOS']
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
         submodules: recursive
@@ -31,7 +31,7 @@ jobs:
     - name: Debug - List build directory contents
       run: ls -R build
     - name: Upload ${{ matrix.platform }} Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: NineAnimator_Nightly.${{ steps.commitinfo.outputs.sha_short }}.${{ matrix.platform }}
         path: build/*
