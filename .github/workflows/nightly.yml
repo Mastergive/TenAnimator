@@ -35,4 +35,3 @@ jobs:
       with:
         name: NineAnimator_Nightly.${{ steps.commitinfo.outputs.sha_short }}.${{ matrix.platform }}
         path: build/*
-        if-no-files-found: error
