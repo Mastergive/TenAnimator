@@ -26,12 +26,12 @@ import AppKit
 import NineAnimatorCommon
 
 class NASourceAniwatch: BaseSource, Source, PromiseSource {
-    var name: String { "hianime.to" }
+    var name: String { "hianimez.to" }
     
     var aliases: [String] { [] }
     
     #if canImport(UIKit)
-    var siteLogo: UIImage { #imageLiteral(resourceName: "Hiiwatch Site Icon") }
+    var siteLogo: UIImage { #imageLiteral(resourceName: "Hiwatch Site Icon") }
     #elseif canImport(AppKit)
     var siteLogo: NSImage { #imageLiteral(resourceName: "Hiwatch Site Icon") }
     #endif
@@ -44,7 +44,7 @@ class NASourceAniwatch: BaseSource, Source, PromiseSource {
         \.romaji
     }
     
-    override var endpoint: String { "https://hianime.to/" }
+    override var endpoint: String { "https://hianimez.to/" }
     
     /*let ajexEndpoint = URL(string: "https://aniwatch.me/api/ajax/APIHandle")!
     
